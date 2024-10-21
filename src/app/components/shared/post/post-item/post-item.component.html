@@ -1,0 +1,11 @@
+<p-card [header]="post.title" [style]="{ width: '360px'}">
+	<p>{{ post.body }}</p>
+	<small>Author ID: {{ post.userId }}</small>
+	@if (isAdmin) {
+		<ng-template pTemplate="footer">
+			<div class="flex gap-3 mt-1">
+				<p-button label="Edit" icon="pi pi-pencil" class="w-full" styleClass="w-full" (click)="editPost(post)"></p-button>
+			</div>
+		</ng-template>
+	}
+</p-card>

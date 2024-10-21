@@ -1,0 +1,14 @@
+<div class="createPostWrapper">
+	<h2>Posts</h2>
+  
+	@if(isAdmin()) {
+		<p-button label="Create Post" icon="pi pi-plus" (click)="redirectToCreatePost()" class="p-button-success"></p-button>
+	}
+</div>
+<div class="post-list">
+	@for (post of posts; track post.id) {
+		<app-post-item [post]="post" [isAdmin]="isAdmin()"></app-post-item>
+	} @empty {
+		<li>There are no items.</li>
+	}
+</div>
