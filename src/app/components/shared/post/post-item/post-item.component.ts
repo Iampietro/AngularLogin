@@ -1,4 +1,5 @@
 import { Component, Input  } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 
@@ -15,7 +16,11 @@ export class PostItemComponent {
   @Input() post!: Post;
   @Input() isAdmin!: boolean;
 
+  constructor(
+    private router: Router,
+  ) { }
+
   editPost(post: Post) {
-    console.log('Edit post:', this.post);
+    this.router.navigate(['posts/edit/', post.id])
   }
 }

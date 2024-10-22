@@ -1,4 +1,4 @@
-<div class="createPostContainer">
+<div class="centerAligned">
   @if (feedbackMessage) {
     <span
       [ngClass]="{'success': feedbackType === 'success', 'error': feedbackType === 'error'}"
@@ -7,7 +7,7 @@
       {{ feedbackMessage }}
   </span>
   }
-  <p-card header="Create New Post" styleClass="post-form" [style]="{ width: '450px'}">
+  <p-card header="{{ isEditMode ? 'Edit Post' : 'Create New Post' }}" styleClass="post-form" [style]="{ width: '450px'}">
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <div class="p-fluid">
         <div class="p-field">
@@ -23,7 +23,7 @@
           <input id="userId" pInputText formControlName="userId" />
         </div>
         <div class="p-field">
-          <button pButton label="Create Post" type="submit"></button>
+          <button pButton label="{{ isEditMode ? 'Update Post' : 'Create Post' }}" type="submit"></button>
         </div>
       </div>
     </form>

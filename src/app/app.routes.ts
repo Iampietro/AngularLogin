@@ -9,7 +9,13 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
 	// { path: 'unauthorized', component: UnauthorizedComponent },
 	{
-    path: 'create-post',
+    path: 'posts/new',
+    component: CreatePostComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'admin' }
+  },
+  {
+    path: 'posts/edit/:id',
     component: CreatePostComponent,
     canActivate: [AuthGuard],
     data: { expectedRole: 'admin' }

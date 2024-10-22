@@ -28,7 +28,8 @@
       "@state/*": ["app/state/*"],
       "@models/*": ["app/models/*"],
       "@api/*": ["app/api/*"],
-      "@auth/*": ["app/auth/*"]
+      "@auth/*": ["app/auth/*"],
+      "@utils/*": ["app/utils/*"]
     }
   },
   "angularCompilerOptions": {

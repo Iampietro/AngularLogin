@@ -21,6 +21,10 @@ export class PostApiService {
   }
 
   editPost(updatedPost: Post): Observable<Post> {
-    return this.http.put<Post>(`${this.apiUrl}/${updatedPost.id}`, updatedPost);
+    return this.http.put<Post>(`${this.apiUrl}/posts/${updatedPost.id}`, updatedPost);
+  }
+
+  getPost(postId: string): Observable<Post> {
+    return this.http.get<Post>(`${this.apiUrl}/posts/${postId}`);
   }
 }

@@ -6,9 +6,16 @@
 	}
 </div>
 <div class="post-list">
-	@for (post of posts; track post.id) {
+	@for (post of paginatedPosts; track post.id) {
 		<app-post-item [post]="post" [isAdmin]="isAdmin()"></app-post-item>
 	} @empty {
 		<li>There are no items.</li>
 	}
 </div>
+
+<p-paginator 
+  [rows]="rows" 
+  [totalRecords]="totalPosts" 
+  (onPageChange)="paginate($event)" 
+  styleClass="p-mt-3">
+</p-paginator>
