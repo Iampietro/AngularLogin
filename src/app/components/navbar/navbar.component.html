@@ -1,6 +1,16 @@
 <div class="navbar">
-	<span>Welcome to this awesome app</span>
+	<div class="left-side-wrapper">
+		@if(authService.isAuthenticated() && isAdmin()) {
+			<p-button label="Home" icon="pi pi-home" (click)="redirectToHome()" class="p-button-primary home-btn"></p-button>
+		}
+		<span>Welcome to this awesome app</span>
+	</div>
 	@if(authService.isAuthenticated()) {
-		<button pButton label="Logout" icon="pi pi-sign-out" class="p-button-danger" (click)="logout()"></button>
+		<div>
+			@if(isAdmin()) {
+				<p-button label="Create Post" icon="pi pi-plus" (click)="redirectToCreatePost()" class="p-button-success"></p-button>
+			}
+			<button pButton label="Logout" icon="pi pi-sign-out" class="p-button-danger logout-btn" (click)="logout()"></button>
+		</div>
 	}
 </div>

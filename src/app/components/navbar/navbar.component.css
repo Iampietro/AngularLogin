@@ -6,10 +6,23 @@
   background-color: #f8f9fa;
   border-bottom: 1px solid #ccc;
 	margin-bottom: 15px;
+  min-height: 54px;
 }
 
 .navbar span {
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
+}
+
+:host {
+	::ng-deep .p-button {
+		margin-right: 15px;
+	}
+}
+
+.left-side-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

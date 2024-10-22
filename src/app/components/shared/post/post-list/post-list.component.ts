@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ButtonModule } from 'primeng/button';
@@ -23,7 +22,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   totalPosts = 0;
   private destroy$ = new Subject<void>();
 
-  constructor(private postFacade: PostFacadeService, private router: Router) {
+  constructor(private postFacade: PostFacadeService) {
     this.postFacade.posts$.pipe(takeUntil(this.destroy$)).subscribe((posts: Post[]) => {
       this.posts = posts;
     });
@@ -52,9 +51,5 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   isAdmin(): boolean {
     return this.postFacade.isAdmin();
-  }
-
-  redirectToCreatePost() {
-    this.router.navigate(['posts/new'])
   }
 }

@@ -47,6 +47,11 @@ export class AuthService {
     return !!token && this.verifyToken(token);
   }
 
+  getToken(): string | null {
+    const token = localStorage.getItem(this.tokenKey);
+    return token;
+  }
+
   private generateJwtToken(user: User): string {
     const payload = {
       username: user.username,

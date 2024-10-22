@@ -10,20 +10,36 @@
   <p-card header="{{ isEditMode ? 'Edit Post' : 'Create New Post' }}" styleClass="post-form" [style]="{ width: '450px'}">
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <div class="p-fluid">
+
         <div class="p-field">
           <label for="title">Title</label>
           <input id="title" pInputText formControlName="title" />
+          @if (postForm.get('title')?.invalid && postForm.get('title')?.touched) {
+            <small class="p-error">Title is required.</small>
+          }
         </div>
+
         <div class="p-field">
           <label for="body">Body</label>
           <textarea id="body" pInputTextarea formControlName="body"></textarea>
+          @if (postForm.get('body')?.invalid && postForm.get('body')?.touched) {
+            <small class="p-error">Body is required.</small>
+          }
         </div>
+
         <div class="p-field">
           <label for="userId">User ID</label>
           <input id="userId" pInputText formControlName="userId" />
+          @if (postForm.get('userId')?.invalid && postForm.get('userId')?.touched) {
+            <small class="p-error">User ID is required.</small>
+          }
         </div>
+
         <div class="p-field">
-          <button pButton label="{{ isEditMode ? 'Update Post' : 'Create Post' }}" type="submit"></button>
+          <button 
+            pButton label="{{ isEditMode ? 'Update Post' : 'Create Post' }}" 
+            type="submit" 
+            [disabled]="postForm.invalid"></button>
         </div>
       </div>
     </form>
