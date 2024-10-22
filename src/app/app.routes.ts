@@ -8,7 +8,11 @@ import { UnauthorizedComponent } from './components/shared/unauthorized/unauthor
  
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-	{ path: 'unauthorized', component: UnauthorizedComponent },
+	{ 
+    path: 'unauthorized', 
+    component: UnauthorizedComponent,
+    canActivate: [AuthGuard]
+  },
 	{
     path: 'posts/new',
     component: CreatePostComponent,
