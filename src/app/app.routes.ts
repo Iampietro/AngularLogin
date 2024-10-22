@@ -4,10 +4,11 @@ import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreatePostComponent } from './components/admin-components/create-post/create-post.component';
-
+import { UnauthorizedComponent } from './components/shared/unauthorized/unauthorized.component';
+ 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-	// { path: 'unauthorized', component: UnauthorizedComponent },
+	{ path: 'unauthorized', component: UnauthorizedComponent },
 	{
     path: 'posts/new',
     component: CreatePostComponent,
